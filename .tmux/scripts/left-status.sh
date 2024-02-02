@@ -1,0 +1,26 @@
+#!bin/bash
+
+function uptime() {
+	uptimeText=$(uptime)
+}
+
+function ip_address() {
+
+	# Loop through the interfaces and check for the interface that is up.
+	for file in /sys/class/net/*; do
+
+		iface=$(basename $file)
+
+		read status <$file/operstate
+
+		[ "$status" == "up" ] && ip addr show $iface | awk '/inet /{printf $2" "}'
+	done
+
+}
+
+function main() {
+	ip_address
+	uptime
+}
+
+main
