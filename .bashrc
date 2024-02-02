@@ -114,3 +114,4 @@ fi
 alias dotfile='/usr/bin/git --git-dir=/home/josh/dotfiles/ --work-tree=/home/josh'
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(starship init bash)"
