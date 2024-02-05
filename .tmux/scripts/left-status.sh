@@ -1,7 +1,7 @@
-#!bin/bash
+#!/bin/bash
 
 function uptime() {
-	uptimeText=$(uptime)
+	uptime | awk '{printf $2" "$3" " $4" "$5}' | sed 's/,/ | /g'
 }
 
 function ip_address() {
@@ -19,7 +19,6 @@ function ip_address() {
 }
 
 function main() {
-	ip_address
 	uptime
 }
 
