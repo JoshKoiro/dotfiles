@@ -113,7 +113,7 @@ if ! shopt -oq posix; then
 		. /etc/bash_completion
 	fi
 fi
-alias dotfile='/usr/bin/git --git-dir=/home/josh/dotfiles/ --work-tree=/home/josh'
+alias dotfile='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init bash)"
