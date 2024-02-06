@@ -139,3 +139,5 @@ ad = add -p
 	email = josh.koiro@gmail.com
 [core]
 	editor = nvim
+[init]
+	defaultBranch = main
