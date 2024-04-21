@@ -76,6 +76,7 @@ if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	alias ls='ls --color=auto'
 	alias v='nvim'
+	alias cat='bat'
 	#alias vdir='vdir --color=auto'
 	#alias dir='dir --color=auto'
 
@@ -117,3 +118,15 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init bash)"
+echo ssh-agent starting...
+eval $(ssh-agent)
+ssh-add ~/.ssh/github
+trap 'ssh-agent -k' EXIT
+trap 'ssh-agent -k' EXIT
+echo
+echo
+neofetch
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
