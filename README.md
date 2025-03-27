@@ -1,2 +1,2 @@
 # dotfiles
-A collection dotfiles using the git --bare method
+A collection dotfiles using GNU Stow.
