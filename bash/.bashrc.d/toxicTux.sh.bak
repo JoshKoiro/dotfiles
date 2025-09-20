@@ -1,0 +1,49 @@
+alias toxictux_error='$HOME/.bashrc.d/toxicTux/rude.sh $HOME/.bashrc.d/toxicTux/rude-comments.txt | cowsay -f tux'
+alias toxictux_syntax='$HOME/.bashrc.d/toxicTux/rude.sh $HOME/.bashrc.d/toxicTux/rude-comments.txt | cowsay -f tux'
+
+# TOXIC TUX
+# Function to handle errors globally
+error_handler() {
+  local exit_code=$?
+  local last_command=$BASH_COMMAND
+
+  # Check if it's a syntax error
+  if [[ $exit_code -eq 2 && "$last_command" == *"syntax error"* ]]; then
+    echo ""
+    if command -v toxictux_syntax &>/dev/null; then
+      toxictux_syntax
+    else
+      echo "Warning: toxictux program not found."
+    fi
+  else
+    echo ""
+    if command -v toxictux_error &>/dev/null; then
+      toxictux_error
+    else
+      echo "Warning: toxictux program not found."
+    fi
+  fi
+
+  return $exit_code
+}
+
+# Set the trap for errors
+trap 'error_handler' ERR
+
+# Function to run commands with error handling
+run_command() {
+  # Run the command and capture its output and exit code
+  output=$(eval "$@" 2>&1)
+  exit_code=$?
+
+  # If there was an error, print the output and handle the error
+  if [ $exit_code -ne 0 ]; then
+    echo "$output"
+    error_handler
+  else
+    # If no error, just print the output
+    echo "$output"
+  fi
+
+  # return $exit_code
+}

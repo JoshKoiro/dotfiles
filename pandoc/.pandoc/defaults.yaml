@@ -1,0 +1,53 @@
+pdf-engine: xelatex
+variables:
+  geometry:
+    - margin=1in
+  mainfont: "Noto Serif"
+  sansfont: "Noto Sans"
+  monofont: "Noto Sans Mono"
+  mathfont: "Noto Sans Math"
+  mainfontoptions:
+    - "Ligatures=TeX"
+    - "Scale=1.0"
+  sansfontoptions:
+    - "Ligatures=TeX"
+    - "Scale=MatchLowercase"
+  monofontoptions:
+    - "Scale=MatchLowercase"
+  fontsize: 10pt
+  linestretch: 1.15
+  lang: en-US
+  linkcolor: blue
+  header-includes:
+    # Heading customization using titlesec package
+    - \usepackage{titlesec}
+    - \usepackage{xcolor}
+    
+    # H1 customization - Large, bold, sans-serif
+    - \titleformat{\section}{\fontsize{18pt}{22pt}\selectfont\sffamily\bfseries\color{black}}{\thesection}{1em}{}
+    
+    # H2 customization - Medium, bold, sans-serif  
+    - \titleformat{\subsection}{\fontsize{14pt}{17pt}\selectfont\sffamily\bfseries\color{black}}{\thesubsection}{1em}{}
+    
+    # H3 customization - Smaller, bold, serif
+    - \titleformat{\subsubsection}{\fontsize{12pt}{15pt}\selectfont\sffamily\bfseries\color{black}}{\thesubsubsection}{1em}{}
+    
+    # Body text customization (paragraphs) - serif by default, but you can override
+    # Uncomment the line below to force sans-serif paragraphs:
+    - \renewcommand{\familydefault}{\sfdefault}
+    
+    # Or uncomment this to force serif paragraphs (already default):
+    # - \renewcommand{\familydefault}{\rmdefault}
+    
+    # Quote block customization - Fixed version without circular reference
+    - \usepackage{environ}
+    - \let\oldquote\quote
+    - \let\endoldquote\endquote
+    - \renewenvironment{quote}{\oldquote\itshape\color{gray}}{\endoldquote}
+    
+    # Paragraph spacing and formatting
+    - \setlength{\parindent}{0pt}
+    - \setlength{\parskip}{6pt plus 2pt minus 1pt}
+toc: false
+toc-depth: 3
+number-sections: false
