@@ -17,9 +17,9 @@ $docker_context\
 $git_branch\
 $git_metrics\
 $git_status\
+$fill\
+$localip
 $character"""
-
-
 
 palette = 'catppuccin_mocha'
 
@@ -67,7 +67,7 @@ crust = "#11111b"
 [os]
 disabled = false
 style = "fg:red"
-format = '[ $symbol]($style)'
+format = '[ $symbol ]($style)'
 
 [os.symbols]
 Windows = "󰍲"
@@ -94,16 +94,21 @@ RedHatEnterprise = "󱄛"
 show_always = true
 style_user = "fg:green"
 style_root = "fg:maroon"
-format = '[ $user@]($style)'
+format = '[$user@]($style)'
 
 [hostname]
-style = "fg:green"
+style = "bold fg:green"
 ssh_only = false
 format = "[$hostname]($style)"
 
+[fill]
+symbol = ' '
+style = 'none'
+
 [localip]
+style = "fg:overlay2"
 ssh_only = false
-format = '[$localipv4:](fg:green)'
+format = '[ {$localipv4}]($style)'
 disabled = false
 
 [directory]
@@ -128,10 +133,10 @@ format = '[[ $symbol $branch ](fg:green)]($style)'
 
 [git_status]
 style = "bold fg:maroon"
-ahead = '⇡${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-behind = '⇣${count}'
-modified = '!${count}'
+ahead = '󰁞${count}'
+diverged = '󰹺${ahead_count}⇣${behind_count}'
+behind = '󰁆${count}'
+modified = '${count}'
 format = '[$all_status$ahead_behind]($style)'
 [git_metrics]
 format = '[$added]'
@@ -190,16 +195,16 @@ format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
 disabled = false
 time_format = "%R"
 style = "bg:peach"
-format = '[[  $time ](fg:surface1 bg:lavender)]($style)'
+format = '[[  $time ](fg:overlay2)]($style)'
 
 [line_break]
 disabled = false
 
 [character]
 disabled = false
-success_symbol = '[󰄛 >](bold fg:lavender)'
-error_symbol = '[󰄛 >](bold fg:red)'
-vimcmd_symbol = '[󰄛 >](bold fg:creen)'
-vimcmd_replace_one_symbol = '[󰄛 >](bold fg:lavender)'
-vimcmd_replace_symbol = '[󰄛 >](bold fg:lavender)'
-vimcmd_visual_symbol = '[󰄛 >](bold fg:lavender)'
+success_symbol = '[   🐱 󰅂](bold fg:lavender)'
+error_symbol = '[   🙀 󰅂](bold fg:red)'
+vimcmd_symbol = '[   🐱 󰅂](bold fg:creen)'
+vimcmd_replace_one_symbol = '[   🐱 󰅂](bold fg:lavender)'
+vimcmd_replace_symbol = '[   🐱 󰅂](bold fg:lavender)'
+vimcmd_visual_symbol = '[   🐱 󰅂](bold fg:lavender)'
