@@ -39,4 +39,4 @@ fi
 # Run the command
 # The --logo-color option in fastfetch sets the color for the logo.
 # Available colors include: black, red, green, yellow, blue, magenta, cyan, white, and default.
-clear && jp2a --width=40 "$IMAGE_PATH" | fastfetch --logo - --logo-color-1 "$LOGO_COLOR"
+echo && echo && echo && jp2a --width=40 "$IMAGE_PATH" | fastfetch --logo - --logo-color-1 "$LOGO_COLOR"
