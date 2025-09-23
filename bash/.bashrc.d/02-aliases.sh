@@ -5,6 +5,8 @@ alias meow='clear && cowsay -f kitten "MEOW HOOMAN"'
 alias ls='eza --icons -a'
 alias l='eza --icons -a -TL 2'
 alias dps='lazydocker'
+
+alias btop='btop --utf-force'
 # Alias to use run_command for all commands
 alias run='run_command'
 alias pdf='pandoc --defaults=~/.pandoc/default-style.yaml'
